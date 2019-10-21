@@ -1,11 +1,14 @@
 {
-    "test1":{
+    "frameRate":{
         "type":"int"
     },
-    "test2":{
-        "type":"str"
-    },
-    "test3":{
+    "frequencies":{
         "type":"intArray"
+    },
+    "angles":{
+        "type":"intArray"
+    },
+    "targetSizePixels":{
+        "type":"int"
     }
 }

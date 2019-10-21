@@ -1,5 +1,6 @@
 {
-    "test1":1,
-    "test2":"hello",
-    "test3":[11,12,12]
+    "frameRate":60,
+    "frequencies":[5,15],
+    "angles":[45,90],
+    "targetSizePixels":200
 }
