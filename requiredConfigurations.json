@@ -1,0 +1,11 @@
+{
+    "test1":{
+        "type":"int"
+    },
+    "test2":{
+        "type":"str"
+    },
+    "test3":{
+        "type":"intArray"
+    }
+}
