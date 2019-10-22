@@ -1,0 +1,10 @@
+{
+    "frameRate":60,
+    "frequencies":[12,13,14,15,16],
+    "angles":[0],
+    "targetSizePixels":200,
+    "sequenceLengthSeconds":3,
+    "screenshotSavePath":"./data/experiment1.pickle",
+    "markerFile":"markerList.json",
+    "numTrials":1
+}

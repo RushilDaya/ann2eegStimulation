@@ -1,0 +1,26 @@
+{
+    "frameRate":{
+        "type":"int"
+    },
+    "frequencies":{
+        "type":"intArray"
+    },
+    "angles":{
+        "type":"intArray"
+    },
+    "targetSizePixels":{
+        "type":"int"
+    },
+    "screenshotSavePath":{
+        "type":"str"
+    },
+    "sequenceLengthSeconds":{
+        "type":"int"
+    },
+    "markerFile":{
+        "type":"str"
+    },
+    "numTrials":{
+        "type":"int"
+    }
+}
