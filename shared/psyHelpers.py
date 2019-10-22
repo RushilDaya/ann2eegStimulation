@@ -1,6 +1,7 @@
 from psychopy import visual, core
-from psychopy.hardware import keyboard
+from psychopy import event
 import numpy as np
+import time
 
 def makeWindow():
     window = visual.Window(fullscr=True,
@@ -65,8 +66,30 @@ def screenCaptureRoutine(window, sequencesDict):
             
 
 def pauseScreen(window):
-    kb = keyboard.KeyBoard()
-    pass
+    showMessage(window,'Press any key to continue',duration_frames=12)
+    event.clearEvents()
+    event.waitKeys()
+    return True
 
-def conductTrial(sequences,orderList,markerObj):
-    pass 
+def conductTrial(sequences,orderList,markerObj,window,numSeconds):
+
+    temp = sequences[orderList[0][0]][orderList[0][1]][0]
+    temp.draw()
+    window.flip()
+
+    markerObj.display_trialStart()
+    time.sleep(1)
+    for (frequency,angle) in orderList:
+        time.sleep(1)
+        startTime = time.time()
+        sequenceOfInterest = sequences[frequency][angle]
+        markerObj.display_seqStart(frequency,angle)
+        for second in range(numSeconds):
+            for frame in sequenceOfInterest:
+                frame.draw()
+                window.flip()
+        print(time.time()-startTime)
+        markerObj.display_seqEnd()
+    time.sleep(1)
+    markerObj.display_trialEnd()
+    return
