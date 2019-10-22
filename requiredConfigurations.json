@@ -10,5 +10,11 @@
     },
     "targetSizePixels":{
         "type":"int"
+    },
+    "screenshotSavePath":{
+        "type":"str"
+    },
+    "sequenceLengthSeconds":{
+        "type":"int"
     }
 }

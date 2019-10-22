@@ -1,6 +1,8 @@
 {
     "frameRate":60,
-    "frequencies":[5,15],
-    "angles":[45,90],
-    "targetSizePixels":200
+    "frequencies":[5,10,15,20,25],
+    "angles":[45],
+    "targetSizePixels":200,
+    "sequenceLengthSeconds":2,
+    "screenshotSavePath":"./data/testExperiment.pickle"
 }

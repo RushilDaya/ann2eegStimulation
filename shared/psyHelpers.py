@@ -1,4 +1,5 @@
 from psychopy import visual, core
+import numpy as np
 
 def makeWindow():
     window = visual.Window(fullscr=True,
@@ -31,7 +32,33 @@ def generateDisplaySequences(window, frequencies, gratingAngles, frequencyMasks,
 
     return allSequences    
             
-                
+def showMessage(window, message, duration_frames=12):
+    message = visual.TextStim(window,message)
+    for i in range(duration_frames):
+        message.draw()
+        window.flip()
+    return True
 
+def screenCaptureRoutine(window, sequencesDict):
+    # take multilevel dictionary and draws the images to the screen
+    # this way is  flexible for future changes
+    # the capturing is slow hence why it is not done in real time
+
+    outerKeys = list(sequencesDict.keys())
+    innerKeys = list(sequencesDict[outerKeys[0]].keys())
+    
+    screenShots = {}
+    for outerKey in outerKeys:
+        screenShots[outerKey]={}
+        for innerKey in innerKeys:
+            screenShots[outerKey][innerKey]=[]
+            sequenceOfInterest = sequencesDict[outerKey][innerKey]
+            for idx in range(len(sequenceOfInterest)):
+                tempStimulus = sequenceOfInterest[idx]
+                tempStimulus.draw()
+                window.flip()
+                screenShot = np.asarray(window.getMovieFrame())
+                screenShots[outerKey][innerKey]+=[screenShot]
+
+    return screenShots
             
-

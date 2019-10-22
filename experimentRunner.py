@@ -30,5 +30,19 @@ displaySequences = generateDisplaySequences(window, configurations['frequencies'
                                             configurations["targetSizePixels"])
 
 # 3. display and save the patterns which will be displayed
+from shared.psyHelpers import showMessage, screenCaptureRoutine
+from shared.utils import saveObject
+
+showMessage(window, 'Displaying Calibration Routine' )
+screenShots = screenCaptureRoutine(window,displaySequences)
+storeObj = {
+    'screenShots':screenShots,
+    'frameRate':configurations['frameRate'],
+    'sequenceLength':configurations['sequenceLengthSeconds'],
+    'frequencies':configurations['frequencies'],
+    'angles':configurations['angles']
+}
+
+saveObject(storeObj,configurations['screenshotSavePath'])
 
 # 4. run trial loops
