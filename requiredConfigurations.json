@@ -16,5 +16,11 @@
     },
     "sequenceLengthSeconds":{
         "type":"int"
+    },
+    "markerFile":{
+        "type":"str"
+    },
+    "numTrials":{
+        "type":"int"
     }
 }

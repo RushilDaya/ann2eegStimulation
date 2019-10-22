@@ -30,19 +30,34 @@ displaySequences = generateDisplaySequences(window, configurations['frequencies'
                                             configurations["targetSizePixels"])
 
 # 3. display and save the patterns which will be displayed
-from shared.psyHelpers import showMessage, screenCaptureRoutine
-from shared.utils import saveObject
 
-showMessage(window, 'Displaying Calibration Routine' )
-screenShots = screenCaptureRoutine(window,displaySequences)
-storeObj = {
-    'screenShots':screenShots,
-    'frameRate':configurations['frameRate'],
-    'sequenceLength':configurations['sequenceLengthSeconds'],
-    'frequencies':configurations['frequencies'],
-    'angles':configurations['angles']
-}
+# from shared.psyHelpers import showMessage, screenCaptureRoutine
+# from shared.utils import saveObject
 
-saveObject(storeObj,configurations['screenshotSavePath'])
+# showMessage(window, 'Displaying Calibration Routine' )
+# screenShots = screenCaptureRoutine(window,displaySequences)
+# storeObj = {
+#     'screenShots':screenShots,
+#     'frameRate':configurations['frameRate'],
+#     'sequenceLength':configurations['sequenceLengthSeconds'],
+#     'frequencies':configurations['frequencies'],
+#     'angles':configurations['angles']
+# }
+
+# saveObject(storeObj,configurations['screenshotSavePath'])
 
 # 4. run trial loops
+from shared.markerHandler import markerHandler
+from shared.utils import randomDuals
+from shared.psyHelpers import pauseScreen, conductTrial
+
+markerObj = markerHandler( configurations['markerFile'],
+                           configurations['frequencies'],
+                           configurations['angles'])
+
+for trialNumber in range(configurations['numTrials']):
+    randomOrder = randomDuals(configurations['frequencies'],configurations['angles'])
+    pauseScreen(window)
+    conductTrial(displaySequences,randomOrder,markerObj)
+
+    

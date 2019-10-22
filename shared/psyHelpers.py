@@ -1,4 +1,5 @@
 from psychopy import visual, core
+from psychopy.hardware import keyboard
 import numpy as np
 
 def makeWindow():
@@ -62,3 +63,10 @@ def screenCaptureRoutine(window, sequencesDict):
 
     return screenShots
             
+
+def pauseScreen(window):
+    kb = keyboard.KeyBoard()
+    pass
+
+def conductTrial(sequences,orderList,markerObj):
+    pass 
